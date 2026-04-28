@@ -1,6 +1,47 @@
 # Git Workflow Guide
 
-This document explains the recommended Git workflow for this learning repository.
+Dokumen ini menjelaskan cara memakai Git di repo `ai-engineer` untuk belajar secara rapi, aman, dan mudah diikuti oleh orang lain.
+
+---
+
+## Tujuan Git Workflow
+
+Git digunakan untuk:
+
+- mencatat progres belajar
+- menyimpan histori perubahan kode
+- membuat branch eksperimen
+- rollback jika terjadi error
+- membiasakan workflow software engineering
+- membuat repo mudah di-clone dan dipelajari learner lain
+
+---
+
+## Setup Awal
+
+Cek Git:
+
+```bash
+git --version
+```
+
+Set nama:
+
+```bash
+git config --global user.name "Nama Kamu"
+```
+
+Set email:
+
+```bash
+git config --global user.email "email@example.com"
+```
+
+Cek konfigurasi:
+
+```bash
+git config --list
+```
 
 ---
 
@@ -11,52 +52,63 @@ git clone https://github.com/ma2ims/ai-engineer.git
 cd ai-engineer
 ```
 
----
-
-## Basic Daily Workflow
-
-Check status:
+Cek status:
 
 ```bash
 git status
 ```
 
-Create or edit files, then stage changes:
+---
 
-```bash
-git add .
+## Branch Utama
+
+Branch utama repo:
+
+```text
+main
 ```
 
-Commit changes:
+Aturan:
 
-```bash
-git commit -m "Learn Python basic"
-```
-
-Push changes:
-
-```bash
-git push origin main
-```
+- `main` harus tetap rapi
+- hindari eksperimen langsung di `main`
+- buat branch baru untuk belajar atau perubahan besar
 
 ---
 
-## Recommended Branch Workflow
+## Membuat Branch Belajar
 
-Create a learning branch:
+Contoh:
 
 ```bash
 git checkout -b learning/level-01-foundation
 ```
 
-Work on the branch, then commit:
+Cek branch aktif:
 
 ```bash
-git add .
-git commit -m "Complete Level 1 daily report API"
+git branch
 ```
 
-Push the branch:
+Pindah ke branch lain:
+
+```bash
+git checkout main
+```
+
+---
+
+## Workflow Harian
+
+Setiap selesai latihan kecil:
+
+```bash
+git status
+git add .
+git commit -m "learning: practice python dictionary"
+```
+
+Push branch ke GitHub:
 
 ```bash
 git push origin learning/level-01-foundation
@@ -64,50 +116,76 @@ git push origin learning/level-01-foundation
 
 ---
 
-## Commit Message Pattern
+## Commit yang Baik
 
-Use clear commit messages.
+Commit sebaiknya kecil dan jelas.
 
-Recommended format:
+Kurang baik:
 
-```txt
-<type>: <short description>
+```bash
+git commit -m "update"
+git commit -m "fix"
+git commit -m "belajar"
 ```
 
-Examples:
+Lebih baik:
 
-```txt
-docs: add Python basic notes
-feat: add daily report create endpoint
-fix: handle missing report id
-chore: add docker compose setup
-refactor: split database logic
-```
-
-Common types:
-
-```txt
-docs     = documentation changes
-feat     = new feature
-fix      = bug fix
-chore    = maintenance/config
-refactor = code improvement without changing behavior
-test     = testing changes
+```bash
+git commit -m "learning: practice python loop"
+git commit -m "docs: add json basic notes"
+git commit -m "feat: add create report endpoint"
+git commit -m "fix: return 404 when report not found"
 ```
 
 ---
 
-## Pull Latest Changes
+## Commit Type
 
-Before working:
+| Type | Contoh |
+|---|---|
+| `docs` | `docs: add docker guide` |
+| `learning` | `learning: practice sql select query` |
+| `feat` | `feat: add report API endpoint` |
+| `fix` | `fix: handle database connection error` |
+| `refactor` | `refactor: split database helper` |
+| `chore` | `chore: update gitignore` |
+| `test` | `test: add health check test` |
+
+---
+
+## Pull Update dari Remote
+
+Sebelum mulai kerja, biasakan:
 
 ```bash
+git checkout main
 git pull origin main
 ```
 
+Kalau sedang di branch belajar:
+
+```bash
+git checkout learning/level-01-foundation
+git merge main
+```
+
 ---
 
-## View History
+## Melihat Perubahan
+
+Cek file yang berubah:
+
+```bash
+git status
+```
+
+Lihat detail perubahan:
+
+```bash
+git diff
+```
+
+Lihat histori commit:
 
 ```bash
 git log --oneline
@@ -115,45 +193,110 @@ git log --oneline
 
 ---
 
-## Undo Local Changes Carefully
+## Undo Perubahan
 
-Discard changes in one file:
+Batalkan perubahan file yang belum di-commit:
 
 ```bash
-git checkout -- path/to/file
+git checkout -- nama-file
 ```
 
-Reset staged file:
+Batalkan semua perubahan yang belum di-commit:
 
 ```bash
-git reset path/to/file
+git restore .
 ```
 
-Avoid using destructive commands unless you understand them:
+Hapus file dari staging:
 
 ```bash
-git reset --hard
-git clean -fd
+git restore --staged nama-file
 ```
 
 ---
 
-## Learning Rule
+## Pull Request Workflow
 
-Commit small progress often.
+Jika ingin belajar workflow profesional:
 
-Good:
+1. Buat branch baru
+2. Commit perubahan
+3. Push branch
+4. Buat Pull Request ke `main`
+5. Review perubahan
+6. Merge jika sudah aman
 
-```txt
-feat: add health check endpoint
-feat: add create report endpoint
-feat: save report to sqlite
+Command:
+
+```bash
+git checkout -b docs/update-level-01
+git add .
+git commit -m "docs: update level 01 checklist"
+git push origin docs/update-level-01
 ```
 
-Not ideal:
+---
 
-```txt
-final update
-many changes
-fix all
+## Tag Versi
+
+Saat milestone selesai:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Lihat semua tag:
+
+```bash
+git tag
+```
+
+---
+
+## Git Practice untuk Learner
+
+Latihan 1:
+
+```text
+1. Clone repo
+2. Buat branch learning/my-first-branch
+3. Buat file notes/my-note.md
+4. Commit file tersebut
+5. Push branch ke GitHub
+```
+
+Latihan 2:
+
+```text
+1. Ubah README project
+2. Cek git diff
+3. Commit perubahan
+4. Lihat histori dengan git log --oneline
+```
+
+---
+
+## Checklist Git Basic
+
+```text
+[ ] Bisa clone repo
+[ ] Bisa cek git status
+[ ] Bisa membuat branch
+[ ] Bisa commit perubahan
+[ ] Bisa push branch
+[ ] Bisa pull update dari main
+[ ] Bisa melihat git diff
+[ ] Bisa melihat git log
+[ ] Bisa membuat tag version
+```
+
+---
+
+## Prinsip
+
+```text
+Commit kecil lebih baik daripada commit besar yang membingungkan.
+Branch adalah tempat aman untuk eksperimen.
+README yang jelas membuat repo mudah dipelajari orang lain.
 ```
