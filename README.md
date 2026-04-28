@@ -68,6 +68,7 @@ ai-engineer/
 │
 ├── .gitignore
 ├── Makefile
+├── LICENSE
 └── README.md
 ```
 
@@ -260,4 +261,6 @@ Level 5 Production AI System: Planned
 
 ## License
 
-This repository is intended for personal and public learning. Add a formal license later if needed.
+This repository is licensed under the [MIT License](LICENSE).
+
+You are free to use, copy, modify, distribute, and learn from this repository, as long as the original copyright and license notice are included.
