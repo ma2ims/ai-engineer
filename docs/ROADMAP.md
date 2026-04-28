@@ -1,14 +1,22 @@
 # AI Engineer Learning Roadmap
 
-This roadmap is designed to help learners move from basic software engineering foundations into practical AI engineering.
+Roadmap ini dibuat untuk belajar AI Engineering dari dasar sampai production-ready system.
+
+Fokus utama:
+
+```text
+Foundation → LLM Application → RAG → Agent Workflow → Production AI System
+```
+
+Repo ini tidak hanya berisi teori, tetapi diarahkan untuk menghasilkan project yang bisa dijalankan, dibaca, dan dikembangkan oleh learner lain.
 
 ---
 
 ## Level 1 — Foundation
 
-Goal: understand the basic technical skills needed before building AI applications.
+Tujuan: memahami pondasi engineering sebelum masuk ke aplikasi AI.
 
-Topics:
+Materi:
 
 - Python basic
 - JSON basic
@@ -18,96 +26,161 @@ Topics:
 - Linux command
 - Docker basic
 
-Main project:
+Project:
 
-```txt
+```text
 projects/daily-report-api
 ```
 
-Expected outcome:
+Skill yang harus dikuasai:
 
-- create a simple FastAPI backend
-- accept JSON request body
-- return JSON response
-- save data to SQLite
-- run with Docker Compose
-- version code with Git
+```text
+[ ] Membuat script Python sederhana
+[ ] Membaca dan menulis JSON
+[ ] Membuat API dengan FastAPI
+[ ] Menerima request body dalam format JSON
+[ ] Mengembalikan response JSON
+[ ] Menyimpan data ke SQLite
+[ ] Menggunakan Git branch, commit, dan push
+[ ] Menjalankan aplikasi dengan Docker Compose
+[ ] Menjelaskan alur Client → API → Database → Response
+```
+
+Output portfolio:
+
+```text
+Daily Report API
+```
 
 ---
 
 ## Level 2 — LLM Application
 
-Goal: build applications that use LLM APIs in a controlled way.
+Tujuan: membuat aplikasi sederhana yang terhubung ke Large Language Model secara terkontrol.
 
-Topics:
+Materi:
 
-- LLM API request and response
+- LLM API basic
 - prompt template
 - system prompt
-- structured output
+- user prompt
+- structured output JSON
 - chat history
-- streaming response
 - error handling
 - token and cost logging
+- simple model routing
 
-Example project:
+Project:
 
-```txt
+```text
 projects/llm-chat-api
+```
+
+Skill yang harus dikuasai:
+
+```text
+[ ] Mengirim prompt ke LLM API
+[ ] Membuat prompt template
+[ ] Menghasilkan response JSON terstruktur
+[ ] Menyimpan chat history
+[ ] Menangani error dari API model
+[ ] Mencatat token usage dan cost sederhana
+```
+
+Output portfolio:
+
+```text
+LLM Chat API
 ```
 
 ---
 
 ## Level 3 — RAG System
 
-Goal: build AI applications that answer based on documents or knowledge base.
+Tujuan: membuat AI bisa menjawab berdasarkan dokumen atau knowledge base.
 
-Topics:
+Materi:
 
 - document ingestion
-- chunking
-- embeddings
+- text chunking
+- embedding
 - vector database
 - semantic search
 - retrieval
-- citation/source reference
-- answer generation with context
+- source citation
+- context injection ke prompt
 
-Example project:
+Project:
 
-```txt
+```text
 projects/rag-knowledge-api
+```
+
+Skill yang harus dikuasai:
+
+```text
+[ ] Upload dokumen
+[ ] Memecah dokumen menjadi chunks
+[ ] Membuat embedding
+[ ] Menyimpan embedding ke vector database
+[ ] Mengambil context paling relevan
+[ ] Menjawab berdasarkan source
+[ ] Mengurangi hallucination dengan retrieval context
+```
+
+Output portfolio:
+
+```text
+SOP Question Answering API
 ```
 
 ---
 
-## Level 4 — AI Agent and Workflow
+## Level 4 — AI Agent Workflow
 
-Goal: build AI systems that can use tools and execute multi-step workflows.
+Tujuan: membuat AI tidak hanya menjawab, tetapi bisa menjalankan langkah kerja.
 
-Topics:
+Materi:
 
 - tool calling
 - function calling
 - workflow orchestration
-- agent memory
+- task routing
+- memory
 - approval flow
-- task execution
-- error recovery
+- retry and fallback
+- workflow logging
 
-Example project:
+Project:
 
-```txt
+```text
 projects/ai-agent-workflow
+```
+
+Skill yang harus dikuasai:
+
+```text
+[ ] Agent bisa memilih tool
+[ ] Agent bisa mengambil data dari API/database
+[ ] Agent bisa membuat summary
+[ ] Agent bisa menjalankan workflow multi-step
+[ ] Agent bisa meminta approval untuk action berisiko
+[ ] Agent bisa mencatat hasil eksekusi workflow
+```
+
+Output portfolio:
+
+```text
+Daily Operations Assistant
 ```
 
 ---
 
 ## Level 5 — Production AI System
 
-Goal: prepare AI systems for real usage.
+Tujuan: menjalankan sistem AI dengan standar production.
 
-Topics:
+Materi:
 
 - deployment
 - CI/CD
@@ -115,45 +188,96 @@ Topics:
 - logging
 - evaluation
 - prompt versioning
-- fallback model
-- cost control
+- model fallback
 - security
+- access control
+- cost control
 
-Example project:
+Project:
 
-```txt
+```text
 projects/production-ai-assistant
+```
+
+Skill yang harus dikuasai:
+
+```text
+[ ] Deploy API ke server/cloud
+[ ] Membuat log request dan response
+[ ] Membuat evaluation dataset
+[ ] Memantau latency dan error
+[ ] Mengatur fallback model
+[ ] Mengamankan API key dan environment variable
+[ ] Menyusun basic LLMOps workflow
+```
+
+Output portfolio:
+
+```text
+Production AI Assistant System
 ```
 
 ---
 
-## Suggested Learning Rhythm
+## Rekomendasi Durasi
 
-```txt
-30% concept
-70% practice
+```text
+Level 1: 2–4 minggu
+Level 2: 2–4 minggu
+Level 3: 3–6 minggu
+Level 4: 4–8 minggu
+Level 5: ongoing
 ```
 
-Daily routine:
+Durasi bisa lebih cepat atau lambat. Yang penting setiap level menghasilkan project yang berjalan.
 
-```txt
-1. Read one concept
-2. Type the example manually
-3. Run the code
-4. Modify the code
-5. Fix errors
-6. Commit the result
-7. Write a short learning note
+---
+
+## Pola Belajar Harian
+
+```text
+30% baca konsep
+70% praktik langsung
+```
+
+Rutinitas:
+
+```text
+1. Baca satu konsep
+2. Ketik ulang contoh kode
+3. Jalankan kode
+4. Ubah sedikit kodenya
+5. Baca error jika muncul
+6. Fix error
+7. Commit perubahan
+8. Tulis catatan singkat
 ```
 
 ---
 
 ## Completion Rule
 
-A level is considered complete when:
+Sebuah level dianggap selesai jika:
 
-- the project runs locally
-- the project runs with Docker
-- the README is clear
-- the code is committed to Git
-- the learner can explain what each file does
+```text
+[ ] Project berjalan lokal
+[ ] Project berjalan dengan Docker
+[ ] README project jelas
+[ ] Kode sudah di-commit ke Git
+[ ] Learner bisa menjelaskan fungsi setiap file
+[ ] Learner bisa menjelaskan alur data dari input sampai output
+```
+
+---
+
+## Output Portfolio Setelah Semua Level
+
+```text
+1. Daily Report API
+2. LLM Chat API
+3. SOP RAG Assistant
+4. AI Agent Workflow
+5. Production AI Assistant System
+```
+
+Dengan lima project ini, learner punya bukti praktik yang cukup kuat untuk menunjukkan kemampuan sebagai AI Engineer pemula sampai intermediate.
