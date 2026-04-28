@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    container_name: daily-report-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      APP_ENV: development
+    restart: unless-stopped
